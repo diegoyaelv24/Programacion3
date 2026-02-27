@@ -11,6 +11,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -27,7 +30,12 @@ public class ventana extends JFrame{
 		this.setLayout(null);
 		this.getContentPane().setBackground(Color.black);
 
-		//LOGIN
+		//this.login();
+		//this.registro();
+		this.users();
+		this.repaint();
+	}
+	public void login () {
 		JPanel login_container = new JPanel();
 		login_container.setSize(400,520);
 		login_container.setLocation(50,50);
@@ -87,8 +95,10 @@ public class ventana extends JFrame{
 		acess_btn.setFont(new Font("Arial",Font.ITALIC,18));
 		login_container.add(acess_btn);
 		
-		
-		//REGISTRO
+	}
+	
+	
+	public void registro() {
 		JPanel rgs_container = new JPanel();
 		rgs_container.setBounds(500,50,400,520);
 		rgs_container.setBackground(Color.green);
@@ -192,7 +202,73 @@ public class ventana extends JFrame{
 		register_btn.setFont(new Font("Arial",Font.PLAIN,18));
 		register_btn.setForeground(Color.black);
 		rgs_container.add(register_btn);
-
-		this.repaint();
+		
 	}
+	public void users(){
+	    JPanel panel_users = new JPanel();
+	    panel_users.setSize(900,550);
+	    panel_users.setBackground(Color.blue);
+	    panel_users.setLocation(50,50);
+	    panel_users.setLayout(null);
+	    this.add(panel_users);
+	    
+	    // TITULO
+	    JLabel users_title = new JLabel("Usuarios");
+	    users_title.setBounds(250,10,400,70);
+	    users_title.setHorizontalAlignment(JLabel.CENTER);
+	    users_title.setFont(new Font("Segoe Script",Font.BOLD,48));
+	    users_title.setForeground(Color.black);
+	    panel_users.add(users_title);
+	    
+	    // BOTONES
+	    JButton dowload_button = new JButton("Descargar");
+	    dowload_button.setBounds(600,75,120,35);
+	    dowload_button.setFont(new Font("Arial",Font.ITALIC,14));
+	    panel_users.add(dowload_button);
+	    
+	    JButton add_button = new JButton("Añadir");
+	    add_button.setBounds(740,75,120,35);
+	    add_button.setFont(new Font("Arial",Font.ITALIC,14));
+	    panel_users.add(add_button);
+	    
+	    String []table_head = {"No.Control","Nombre","Apellidos","Correo Electronico","Semestre","Carrera","Acciones"};
+	    
+	    Object [][]table_body = {
+	        {"2023001","Luis","Martínez López","luis.martinez@uabcs.mx","1","Ingeniería en Sistemas","Editar / Eliminar"},
+	        {"2023002","Ana","Gómez Pérez","ana.gomez@uabcs.mx","2","Derecho","Editar / Eliminar"},
+	        {"2023003","Carlos","Hernández Ruiz","carlos.hernandez@uabcs.mx","3","Contaduría","Editar / Eliminar"},
+	        {"2023004","María","Torres Sánchez","maria.torres@uabcs.mx","4","Biología Marina","Editar / Eliminar"},
+	        {"2023005","Jorge","Ramírez Castro","jorge.ramirez@uabcs.mx","5","Administración","Editar / Eliminar"},
+	        {"2023006","Fernanda","López Díaz","fernanda.lopez@uabcs.mx","6","Psicología","Editar / Eliminar"},
+	        {"2023007","Diego","Vargas León","diego.vargas@uabcs.mx","7","Ingeniería en Sistemas","Editar / Eliminar"},
+	        {"2023008","Sofía","Morales Cruz","sofia.morales@uabcs.mx","8","Turismo","Editar / Eliminar"},
+	        {"2023009","Miguel","Castro Núñez","miguel.castro@uabcs.mx","1","Biología Marina","Editar / Eliminar"},
+	        {"2023010","Valeria","Ríos Torres","valeria.rios@uabcs.mx","2","Administración","Editar / Eliminar"},
+	        {"2023011","Ricardo","Moreno Díaz","ricardo.moreno@uabcs.mx","3","Derecho","Editar / Eliminar"},
+	        {"2023012","Daniela","Ortega Silva","daniela.ortega@uabcs.mx","4","Psicología","Editar / Eliminar"},
+	        {"2023013","Alejandro","Vega Cruz","alejandro.vega@uabcs.mx","5","Ingeniería en Sistemas","Editar / Eliminar"},
+	        {"2023014","Camila","Navarro Ruiz","camila.navarro@uabcs.mx","6","Turismo","Editar / Eliminar"},
+	        {"2023015","Eduardo","Soto Hernández","eduardo.soto@uabcs.mx","7","Contaduría","Editar / Eliminar"},
+	        {"2023016","Natalia","Ponce Martínez","natalia.ponce@uabcs.mx","8","Administración","Editar / Eliminar"},
+	        {"2023017","Andrés","Luna García","andres.luna@uabcs.mx","1","Psicología","Editar / Eliminar"},
+	        {"2023018","Paola","Meza Castro","paola.meza@uabcs.mx","2","Biología Marina","Editar / Eliminar"},
+	        {"2023019","Hugo","Salinas Torres","hugo.salinas@uabcs.mx","3","Derecho","Editar / Eliminar"},
+	        {"2023020","Lucía","Cervantes Díaz","lucia.cervantes@uabcs.mx","4","Ingeniería en Sistemas","Editar / Eliminar"}
+	    };
+	    
+	    JTable students = new JTable(table_body,table_head);
+	    students.setRowHeight(25);
+	    students.setBackground(Color.white);
+	    
+	    JScrollPane final_table = new JScrollPane(students);
+	    final_table.setBounds(50,120,800,380);
+	    final_table.getViewport().setBackground(Color.white);
+	    
+	    panel_users.add(final_table);
+	}
+		
+		
+
+
+
 }
