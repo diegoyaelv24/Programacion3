@@ -2,7 +2,10 @@ package src;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -19,6 +22,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import java.awt.Image;
 
 public class ventana extends JFrame{
 	
@@ -33,6 +37,12 @@ public class ventana extends JFrame{
 		this.setLayout(null);
 		this.getContentPane().setBackground(Color.black);
 		
+		try {
+		    Image icon = ImageIO.read(getClass().getResource("/src/imagenes/fantasma.png"));
+		    this.setIconImage(icon);
+		} catch (Exception e) {
+		    e.printStackTrace();
+		}
 		
 		JMenuBar barra = new JMenuBar();
 		this.setJMenuBar(barra);
@@ -59,7 +69,9 @@ public class ventana extends JFrame{
 		menu2.add(opt5_mi);
 		//this.login();
 		//this.registro();
-		this.users();
+		//this.users();
+		this.calculadora();
+		this.setVisible(true);
 		this.repaint();
 	}
 	public void login () {
@@ -293,9 +305,53 @@ public class ventana extends JFrame{
 	    
 	    panel_users.add(final_table);
 	}
+		public void calculadora() {
+			
+			 JPanel panel_users = new JPanel();
+			    panel_users.setSize(500,595);
+			    panel_users.setBackground(Color.blue);
+			    panel_users.setLocation(250,50);
+			    panel_users.setLayout(null);
+			    this.add(panel_users);
+			    
+			    JLabel field = new JLabel("180.00");
+			    field.setSize(480,40);
+			    field.setLocation(10,10);
+			    field.setOpaque(true);
+			    field.setBackground(Color.white);
+			    field.setFont(new Font("Arial",Font.BOLD,22));
+			    field.setBorder(BorderFactory.createEmptyBorder(10,20,10,20));
+			    panel_users.add(field);
+			    
+			   
+			    
+			    int cor_x = 30 ,cor_y = 60;
+			    
+			    String []botones = {"CE"," "," "," ","7","8","9","/","6","5","4","*","3","2","1","-","0",".","=","+"
+			    };
+			   
+			    for( int i = 0; i < 20; i++){
+			    	
+			    	 JButton ce= new JButton(botones[i]);
+					    ce.setSize(80,80);
+					    ce.setLocation(cor_x,cor_y);
+					    
+					    cor_x += 110;
+					    panel_users.add(ce);
+					    
+					    if ( cor_x >= 420) {
+					    	cor_x = 30;
+					    	cor_y += 110;
+					    }
+			    
+			    }
+			    	
+			    	
+			    	
+			    }
+			
+			
+		}
 		
-		
 
 
-
-}
