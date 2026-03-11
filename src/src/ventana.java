@@ -1,7 +1,10 @@
 package src;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridLayout;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -70,7 +73,8 @@ public class ventana extends JFrame{
 		//this.login();
 		//this.registro();
 		//this.users();
-		this.calculadora();
+		//this.calculadora();
+		this.interes();
 		this.setVisible(true);
 		this.repaint();
 	}
@@ -348,10 +352,86 @@ public class ventana extends JFrame{
 			    	
 			    	
 			    	
-			    }
-			
-			
 		}
+		public void interes() {
+
+		    JPanel fondo = new JPanel();
+		    fondo.setLayout(null);
+		    fondo.setBounds(0,0,800,600);
+		    fondo.setBackground(new Color(30,30,30));
+		    this.add(fondo);
+
+		    JPanel panelPrincipal = new JPanel(new BorderLayout(10,10));
+		    panelPrincipal.setBounds(150,50,450,500);
+		    panelPrincipal.setBackground(Color.BLACK);
+		    fondo.add(panelPrincipal);
+
+		    JLabel titulo = new JLabel("Calculando el Interés");
+		    titulo.setFont(new Font("Arial", Font.BOLD, 28));
+		    titulo.setForeground(Color.WHITE);
+		    titulo.setHorizontalAlignment(JLabel.CENTER);
+		    panelPrincipal.add(titulo, BorderLayout.NORTH);
+
+		    JPanel panelDatos = new JPanel(new GridLayout(4,2,10,20));
+		    panelDatos.setBorder(BorderFactory.createTitledBorder(
+		            BorderFactory.createLineBorder(Color.GREEN,2),
+		            "Datos de Entrada",
+		            0,0,new Font("Arial",Font.BOLD,14),Color.GREEN));
+		    panelDatos.setBackground(Color.BLACK);
+
+		    String[] etiquetas = {"Capital:", "Tiempo (años):", "Tasa Interés (%):"};
+
+		    for(String texto : etiquetas){
+		        JLabel lbl = new JLabel(texto);
+		        lbl.setForeground(Color.WHITE);
+		        panelDatos.add(lbl);
+
+		        JTextField txt = new JTextField();
+		        panelDatos.add(txt);
+		    }
+
+		    JPanel panelBotones = new JPanel(new FlowLayout(FlowLayout.CENTER,20,0));
+		    panelBotones.setBackground(Color.white);
+
+		    JButton btnCalcular = new JButton("Calcular");
+		    JButton btnCancelar = new JButton("Cancelar");
+
+		    panelBotones.add(btnCalcular);
+		    panelBotones.add(btnCancelar);
+
+		    panelDatos.add(new JLabel(""));
+		    panelDatos.add(panelBotones);
+
+		    panelPrincipal.add(panelDatos, BorderLayout.CENTER);
+
+		    JPanel panelResultados = new JPanel(new GridLayout(2,2,10,10));
+		    panelResultados.setBorder(BorderFactory.createTitledBorder(
+		            BorderFactory.createLineBorder(Color.RED,2),
+		            "Resultados",
+		            0,0,new Font("Arial",Font.BOLD,14),Color.RED));
+		    panelResultados.setBackground(Color.BLACK);
+
+		    JLabel lblInteres = new JLabel("Interés:");
+		    lblInteres.setForeground(Color.WHITE);
+		    JTextField txtInteres = new JTextField();
+		    txtInteres.setEditable(false);
+
+		    JLabel lblMonto = new JLabel("Monto Final:");
+		    lblMonto.setForeground(Color.WHITE);
+		    JTextField txtMonto = new JTextField();
+		    txtMonto.setEditable(false);
+
+		    panelResultados.add(lblInteres);
+		    panelResultados.add(txtInteres);
+		    panelResultados.add(lblMonto);
+		    panelResultados.add(txtMonto);
+
+		    panelPrincipal.add(panelResultados, BorderLayout.SOUTH);
+		}
+			
+			
+
+}
 		
 
 
