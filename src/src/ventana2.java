@@ -68,7 +68,7 @@ public class ventana2 {
 		p1.add(txtApeMaterno);
 
 		p1.add(new JLabel("Fecha Nacimiento:"));
-		txtFecha = new JTextField("07/01/1990");
+		txtFecha = new JTextField("");
 		p1.add(txtFecha);
 
 		p1.add(new JLabel("Sexo:"));
