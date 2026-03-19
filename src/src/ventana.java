@@ -10,7 +10,6 @@ import java.awt.Graphics2D;
 import java.awt.GridLayout;
 import java.io.File;
 import java.io.IOException;
-
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
@@ -30,6 +29,8 @@ import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 
 public class ventana extends JFrame{
@@ -75,12 +76,12 @@ public class ventana extends JFrame{
 		menu2.add(opt4_mi);
 		JMenuItem opt5_mi = new JMenuItem("Guardar como");
 		menu2.add(opt5_mi);
-		//this.login();
-		//this.registro();
+		this.login();
+		this.registro();
 		//this.users();
 		//this.calculadora();
 		//this.interes();
-		this.pintar();
+		//this.pintar();
 		this.setVisible(true);
 		this.repaint();
 	}
@@ -139,11 +140,41 @@ public class ventana extends JFrame{
 		remenberme.setFont(new Font("Arial",Font.PLAIN,12));
 		login_container.add(remenberme);
 		
-		JButton acess_btn = new JButton("Acceder");
-		acess_btn.setBounds(100,465,200,40);
-		acess_btn.setFont(new Font("Arial",Font.ITALIC,18));
-		login_container.add(acess_btn);
+		JButton access_btn = new JButton("Acceder");
+		access_btn.setBounds(100,465,200,40);
+		access_btn.setFont(new Font("Arial",Font.ITALIC,18));
+		login_container.add(access_btn);
 		
+		access_btn.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String email = email_input.getText().trim();
+				String password = password_input.getText().trim();
+				
+				boolean valid = true;
+				
+				if(email.equals("")) {
+					email_input.setBorder(BorderFactory.createLineBorder(Color.red,3));
+					valid = false;
+				}else {
+					email_input.setBorder(BorderFactory.createLineBorder(Color.green,3));
+				}
+				
+				if(password.equals("") || password.length() < 6 || password.contains(" ")) {
+					password_input.setBorder(BorderFactory.createLineBorder(Color.red,3));
+					valid = false;
+				}else {
+					password_input.setBorder(BorderFactory.createLineBorder(Color.green,3));
+				}
+				
+				if(valid){
+					System.out.println("correcto");
+				}else{
+					System.out.println("error");
+				}
+			}
+		});
 	}
 	
 	
@@ -251,6 +282,55 @@ public class ventana extends JFrame{
 		register_btn.setFont(new Font("Arial",Font.PLAIN,18));
 		register_btn.setForeground(Color.black);
 		rgs_container.add(register_btn);
+		
+		register_btn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				String nombre = name_input.getText().trim();
+				String bio = bio_text.getText().trim();
+
+				boolean valid = true;
+
+				if(nombre.equals("") || nombre.contains(" ")) {
+					name_input.setBorder(BorderFactory.createLineBorder(Color.red,3));
+					valid = false;
+				}else {
+					name_input.setBorder(BorderFactory.createLineBorder(Color.green,3));
+				}
+
+				if(bio.length() < 5) {
+				    bio_text.setBorder(BorderFactory.createLineBorder(Color.red,3));
+				    valid = false;
+				}else {
+				    bio_text.setBorder(BorderFactory.createLineBorder(Color.green,3));
+				}
+
+				if(!opt_sweet.isSelected() && !opt_salty.isSelected() && !opt_healty.isSelected()) {
+					opt_sweet.setForeground(Color.red);
+					opt_salty.setForeground(Color.red);
+					opt_healty.setForeground(Color.red);
+					valid = false;
+				}else {
+					opt_sweet.setForeground(Color.black);
+					opt_salty.setForeground(Color.black);
+					opt_healty.setForeground(Color.black);
+				}
+
+				if(!accept_terms.isSelected()) {
+					accept_terms.setForeground(Color.red);
+					valid = false;
+				}else {
+					accept_terms.setForeground(Color.black);
+				}
+
+				if(valid){
+					System.out.println("Registro correcto");
+				}else{
+					System.out.println("Registro incorrecto");
+				}
+			}
+		});
 		
 	}
 	public void users(){
