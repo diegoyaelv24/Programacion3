@@ -21,6 +21,7 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollBar;
@@ -152,6 +153,9 @@ public class ventana extends JFrame{
 				String email = email_input.getText().trim();
 				String password = password_input.getText().trim();
 				
+				String correoValido = "ola@uabcs.com";
+				String passValido = "123456";
+				
 				boolean valid = true;
 				
 				if(email.equals("")) {
@@ -169,9 +173,11 @@ public class ventana extends JFrame{
 				}
 				
 				if(valid){
-					System.out.println("correcto");
-				}else{
-					System.out.println("error");
+					if(email.equals(correoValido) && password.equals(passValido)){
+						JOptionPane.showMessageDialog(null,"Bienvenido","Acceso correcto",JOptionPane.INFORMATION_MESSAGE);
+					}else{
+						JOptionPane.showMessageDialog(null,"Datos incorrectos","Error",JOptionPane.ERROR_MESSAGE);
+					}
 				}
 			}
 		});
