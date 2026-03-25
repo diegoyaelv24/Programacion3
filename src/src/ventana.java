@@ -77,12 +77,13 @@ public class ventana extends JFrame{
 		menu2.add(opt4_mi);
 		JMenuItem opt5_mi = new JMenuItem("Guardar como");
 		menu2.add(opt5_mi);
-		this.login();
-		this.registro();
+		//this.login();
+		//this.registro();
 		//this.users();
 		//this.calculadora();
 		//this.interes();
 		//this.pintar();
+		this.factura();
 		this.setVisible(true);
 		this.repaint();
 	}
@@ -566,6 +567,98 @@ public class ventana extends JFrame{
 		    panelResultados.add(txtMonto);
 
 		    panelPrincipal.add(panelResultados, BorderLayout.SOUTH);
+		}
+		public void factura() {
+
+		    JPanel contenedor = new JPanel();
+		    contenedor.setBounds(50,50,850,550);
+		    contenedor.setLayout(null);
+		    contenedor.setBackground(new Color(240,240,240));
+		    this.add(contenedor);
+
+		    JLabel titulo = new JLabel("Sistema de Facturación");
+		    titulo.setBounds(250,10,350,40);
+		    titulo.setFont(new Font("Arial",Font.BOLD,26));
+		    contenedor.add(titulo);
+
+		    JPanel datos = new JPanel();
+		    datos.setBounds(20,60,800,120);
+		    datos.setLayout(null);
+		    datos.setBackground(Color.white);
+		    datos.setBorder(BorderFactory.createLineBorder(Color.gray));
+		    contenedor.add(datos);
+
+		    String[] labels = {"Documento","Nombre","Dirección","Teléfono","No. Factura","Fecha"};
+		    int x = 20, y = 10;
+
+		    for(int i=0;i<labels.length;i++){
+		        JLabel l = new JLabel(labels[i]);
+		        l.setBounds(x,y,100,20);
+		        datos.add(l);
+
+		        JTextField t = new JTextField();
+		        t.setBounds(x,y+20,150,25);
+		        datos.add(t);
+
+		        x += 180;
+		        if(i==2){
+		            x = 20;
+		            y += 60;
+		        }
+		    }
+
+		    JPanel tablaPanel = new JPanel();
+		    tablaPanel.setBounds(20,200,800,220);
+		    tablaPanel.setLayout(null);
+		    tablaPanel.setBackground(Color.white);
+		    tablaPanel.setBorder(BorderFactory.createLineBorder(Color.gray));
+		    contenedor.add(tablaPanel);
+
+		    JButton btnAgregar = new JButton("Añadir");
+		    btnAgregar.setBounds(550,10,100,25);
+		    tablaPanel.add(btnAgregar);
+
+		    JButton btnEliminar = new JButton("Eliminar");
+		    btnEliminar.setBounds(660,10,100,25);
+		    tablaPanel.add(btnEliminar);
+
+		    String[] columnas = {"Producto","Cantidad","Precio","Total"};
+		    Object[][] datosTabla = {
+		            {"Agua","2","20","40"},
+		            {"Cereal","1","60","60"},
+		            {"Leche","3","25","75"}
+		    };
+
+		    JTable tabla = new JTable(datosTabla,columnas);
+		    JScrollPane scroll = new JScrollPane(tabla);
+		    scroll.setBounds(20,50,740,150);
+		    tablaPanel.add(scroll);
+
+		    JPanel totales = new JPanel();
+		    totales.setBounds(20,430,800,90);
+		    totales.setLayout(null);
+		    totales.setBackground(Color.white);
+		    totales.setBorder(BorderFactory.createLineBorder(Color.gray));
+		    contenedor.add(totales);
+
+		    String[] txts = {"SubTotal:","Descuento:","IVA:","Total:"};
+		    int posY = 10;
+
+		    for(String t: txts){
+		        JLabel l = new JLabel(t);
+		        l.setBounds(500,posY,100,20);
+		        totales.add(l);
+
+		        JTextField tf = new JTextField();
+		        tf.setBounds(600,posY,120,25);
+		        totales.add(tf);
+
+		        posY += 20;
+		    }
+
+		    JButton finalizar = new JButton("Finalizar");
+		    finalizar.setBounds(300,30,150,30);
+		    totales.add(finalizar);
 		}
 			
 			
