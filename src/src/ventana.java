@@ -77,23 +77,46 @@ public class ventana extends JFrame{
 		menu2.add(opt4_mi);
 		JMenuItem opt5_mi = new JMenuItem("Guardar como");
 		menu2.add(opt5_mi);
-		//this.login();
+		
+		JMenu menu_navegacion = new JMenu("Cuenta");
+		barra.add(menu_navegacion);
+
+		JMenuItem itemLogin = new JMenuItem("Iniciar sesión");
+		JMenuItem itemRegistro = new JMenuItem("Registrarse");
+
+		menu_navegacion.add(itemLogin);
+		menu_navegacion.add(itemRegistro);
+
+		itemLogin.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        login();
+		    }
+		});
+
+		itemRegistro.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        registro();
+		    }
+		});
+		this.login();
 		//this.registro();
 		//this.users();
 		//this.calculadora();
 		//this.interes();
 		//this.pintar();
-		this.factura();
+		//this.factura();
 		this.setVisible(true);
 		this.repaint();
 	}
 	public void login () {
 		JPanel login_container = new JPanel();
-		login_container.setSize(400,520);
+		login_container.setSize(400,550);
 		login_container.setLocation(50,50);
 		login_container.setBackground(Color.pink);
 		login_container.setLayout(null);
-		this.add(login_container);
+		cambiarPanel(login_container);
 		
 		JLabel tag_title = new JLabel ();
 		tag_title.setText("Bienvenido");
@@ -147,6 +170,17 @@ public class ventana extends JFrame{
 		access_btn.setFont(new Font("Arial",Font.ITALIC,18));
 		login_container.add(access_btn);
 		
+		JButton goRegister = new JButton("Ir a registro");
+		goRegister.setBounds(100,510,200,30);
+		login_container.add(goRegister);
+
+		goRegister.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        registro();
+		    }
+		});
+		
 		access_btn.addActionListener(new ActionListener() {
 			
 			@Override
@@ -187,10 +221,10 @@ public class ventana extends JFrame{
 	
 	public void registro() {
 		JPanel rgs_container = new JPanel();
-		rgs_container.setBounds(500,50,400,520);
+		rgs_container.setBounds(500,50,400,550);
 		rgs_container.setBackground(Color.green);
 		rgs_container.setLayout(null);
-		this.add(rgs_container);
+		cambiarPanel(rgs_container);
 
 		// TITULO
 		JLabel bio_tag = new JLabel("REGISTRO");
@@ -289,6 +323,16 @@ public class ventana extends JFrame{
 		register_btn.setFont(new Font("Arial",Font.PLAIN,18));
 		register_btn.setForeground(Color.black);
 		rgs_container.add(register_btn);
+		JButton goLogin = new JButton("Ir a login");
+		goLogin.setBounds(50,510,300,30);
+		rgs_container.add(goLogin);
+
+		goLogin.addActionListener(new ActionListener() {
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		        login();
+		    }
+		});
 		
 		register_btn.addActionListener(new ActionListener() {
 			@Override
@@ -660,6 +704,14 @@ public class ventana extends JFrame{
 		    finalizar.setBounds(300,30,150,30);
 		    totales.add(finalizar);
 		}
+		public void cambiarPanel(JPanel nuevoPanel){
+		    this.getContentPane().removeAll();
+		    this.add(nuevoPanel);
+		    this.revalidate();
+		    this.repaint();
+		}
+		
+		
 			
 			
 
