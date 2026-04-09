@@ -98,6 +98,36 @@ public class ventana extends JFrame{
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        registro();
+
+		        Object src = e.getSource();
+
+		        if(src == itemLogin){
+		            login();
+		        }
+		        else if(src == itemRegistro){
+		            registro();
+		        }
+		        else if(src == itemRecuperar){
+		            recuperacion();
+		        }
+		        else if(src == itemAlta){
+		            altaUsuario();
+		        }
+		        else if(src == itemBaja){
+		            bajaUsuario();
+		        }
+		        else if(src == itemConsultar){
+		            consultarUsuario();
+		        }
+		        else if(src == itemAyuda1){
+		            ayudaCrearUsuario();
+		        }
+		        else if(src == itemAyuda2){
+		            ayudaAcceso();
+		        }
+		        else if(src == itemAyuda3){
+		            ayudaRecuperar();
+		        }
 		    }
 		});
 		this.login();
@@ -383,6 +413,145 @@ public class ventana extends JFrame{
 			}
 		});
 		
+	}
+	public void recuperacion() {
+	    JPanel p = new JPanel();
+	    p.setSize(400,550);
+	    p.setLocation(50,50);
+	    p.setLayout(null);
+
+	    JLabel titulo = new JLabel("Recuperación de Cuenta");
+	    titulo.setBounds(50,20,300,40);
+	    titulo.setHorizontalAlignment(JLabel.CENTER);
+	    p.add(titulo);
+
+	    JButton volver = new JButton("Volver");
+	    volver.setBounds(50,150,300,30);
+	    p.add(volver);
+
+	    volver.addActionListener(e -> login());
+
+	    cambiarPanel(p);
+	}
+
+	public void altaUsuario() {
+	    JPanel p = new JPanel();
+	    p.setSize(400,550);
+	    p.setLocation(500,50);
+	    p.setLayout(null);
+
+	    JLabel titulo = new JLabel("Alta de Usuario");
+	    titulo.setBounds(50,20,300,40);
+	    titulo.setHorizontalAlignment(JLabel.CENTER);
+	    p.add(titulo);
+	    
+	    JButton volver = new JButton("Volver");
+	    volver.setBounds(50,150,300,30);
+	    p.add(volver);
+
+	    volver.addActionListener(e -> login());
+
+	    cambiarPanel(p);
+	}
+
+	public void bajaUsuario() {
+	    JPanel p = new JPanel();
+	    p.setSize(400,550);
+	    p.setLocation(50,50);
+	    p.setLayout(null);
+
+	    JLabel titulo = new JLabel("Baja de Usuario");
+	    titulo.setBounds(50,20,300,40);
+	    titulo.setHorizontalAlignment(JLabel.CENTER);
+	    p.add(titulo);
+
+	    JButton volver = new JButton("Volver");
+	    volver.setBounds(50,150,300,30);
+	    p.add(volver);
+
+	    volver.addActionListener(e -> login());
+
+	    cambiarPanel(p);
+	}
+
+	public void consultarUsuario() {
+	    JPanel p = new JPanel();
+	    p.setSize(400,550);
+	    p.setLocation(500,50);
+	    p.setLayout(null);
+
+	    JLabel titulo = new JLabel("Consultar Usuarios");
+	    titulo.setBounds(50,20,300,40);
+	    titulo.setHorizontalAlignment(JLabel.CENTER);
+	    p.add(titulo);
+
+	    JButton volver = new JButton("Volver");
+	    volver.setBounds(50,100,300,30);
+	    p.add(volver);
+
+	    volver.addActionListener(e -> login());
+
+	    cambiarPanel(p);
+	}
+
+	public void ayudaCrearUsuario() {
+	    JPanel p = new JPanel();
+	    p.setSize(400,550);
+	    p.setLocation(50,50);
+	    p.setLayout(null);
+
+	    JLabel titulo = new JLabel("Ayuda: Crear Usuario");
+	    titulo.setBounds(50,20,300,40);
+	    titulo.setHorizontalAlignment(JLabel.CENTER);
+	    p.add(titulo);
+
+	    JButton volver = new JButton("Volver");
+	    volver.setBounds(50,100,300,30);
+	    p.add(volver);
+
+	    volver.addActionListener(e -> login());
+
+	    cambiarPanel(p);
+	}
+
+	public void ayudaAcceso() {
+	    JPanel p = new JPanel();
+	    p.setSize(400,550);
+	    p.setLocation(500,50);
+	    p.setLayout(null);
+
+	    JLabel titulo = new JLabel("Ayuda: Acceso Sistema");
+	    titulo.setBounds(50,20,300,40);
+	    titulo.setHorizontalAlignment(JLabel.CENTER);
+	    p.add(titulo);
+
+	    JButton volver = new JButton("Volver");
+	    volver.setBounds(50,100,300,30);
+	    p.add(volver);
+
+	    volver.addActionListener(e -> login());
+
+	    cambiarPanel(p);
+	}
+
+	public void ayudaRecuperar() {
+	    JPanel p = new JPanel();
+	    p.setSize(400,550);
+	    p.setLocation(50,50);
+	    p.setLayout(null);
+
+	    JLabel titulo = new JLabel("Ayuda: Recuperar Contraseña");
+	    titulo.setBounds(50,20,300,40);
+	    titulo.setHorizontalAlignment(JLabel.CENTER);
+	    p.add(titulo);
+
+	    JButton volver = new JButton("Volver");
+	    volver.setBounds(50,100,300,30);
+	    p.add(volver);
+
+	    volver.addActionListener(e -> login());
+
+	    cambiarPanel(p);
 	}
 	public void users(){
 	    JPanel panel_users = new JPanel();
