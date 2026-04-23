@@ -1,9 +1,9 @@
+package src;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 
-public class Paint extends JPanel implements MouseListener, MouseMotionListener {
+public class Paint extends JPanel {
 
     JFrame f;
 
@@ -38,82 +38,31 @@ public class Paint extends JPanel implements MouseListener, MouseMotionListener 
         panelHerr.setLayout(new GridLayout(10,1,5,8));
 
         JLabel pincel = new JLabel("Pincel");
-        pincel.setOpaque(true);
-        pincel.setBackground(Color.white);
-        pincel.setBorder(BorderFactory.createLineBorder(Color.gray));
-        pincel.setHorizontalAlignment(SwingConstants.CENTER);
-
         JLabel borrador = new JLabel("Borrador");
-        borrador.setOpaque(true);
-        borrador.setBackground(Color.white);
-        borrador.setBorder(BorderFactory.createLineBorder(Color.gray));
-        borrador.setHorizontalAlignment(SwingConstants.CENTER);
-        
         JLabel relleno = new JLabel("Relleno");
-        relleno.setOpaque(true);
-        relleno.setBackground(Color.white);
-        relleno.setBorder(BorderFactory.createLineBorder(Color.gray));
-        relleno.setHorizontalAlignment(SwingConstants.CENTER);
-        
         JLabel seleccion = new JLabel("Seleccion");
-        seleccion.setOpaque(true);
-        seleccion.setBackground(Color.white);
-        seleccion.setBorder(BorderFactory.createLineBorder(Color.gray));
-        seleccion.setHorizontalAlignment(SwingConstants.CENTER);
-        
         JLabel deshacer = new JLabel("Deshacer");
-        deshacer.setOpaque(true);
-        deshacer.setBackground(Color.white);
-        deshacer.setBorder(BorderFactory.createLineBorder(Color.gray));
-        deshacer.setHorizontalAlignment(SwingConstants.CENTER);
-        
         JLabel rehacer = new JLabel("Rehacer");
-        rehacer.setOpaque(true);
-        rehacer.setBackground(Color.white);
-        rehacer.setBorder(BorderFactory.createLineBorder(Color.gray));
-        rehacer.setHorizontalAlignment(SwingConstants.CENTER);
-        
-        JLabel rect = new JLabel("Rectángulo");
-        rect.setOpaque(true);
-        rect.setBackground(Color.white);
-        rect.setBorder(BorderFactory.createLineBorder(Color.gray));
-        rect.setHorizontalAlignment(SwingConstants.CENTER);
+       
 
-        JLabel circ = new JLabel("Círculo");
-        circ.setOpaque(true);
-        circ.setBackground(Color.white);
-        circ.setBorder(BorderFactory.createLineBorder(Color.gray));
-        circ.setHorizontalAlignment(SwingConstants.CENTER);
+        JLabel[] herramientasLabels = {
+            pincel, borrador, relleno, seleccion,
+            deshacer, rehacer};
 
-        JLabel tri = new JLabel("Triángulo");
-        tri.setOpaque(true);
-        tri.setBackground(Color.white);
-        tri.setBorder(BorderFactory.createLineBorder(Color.gray));
-        tri.setHorizontalAlignment(SwingConstants.CENTER);
-
-        JLabel linea = new JLabel("Línea");
-        linea.setOpaque(true);
-        linea.setBackground(Color.white);
-        linea.setBorder(BorderFactory.createLineBorder(Color.gray));
-        linea.setHorizontalAlignment(SwingConstants.CENTER);
+        for (JLabel lbl : herramientasLabels) {
+            lbl.setOpaque(true);
+            lbl.setBackground(Color.white);
+            lbl.setBorder(BorderFactory.createLineBorder(Color.gray));
+            lbl.setHorizontalAlignment(SwingConstants.CENTER);
+            panelHerr.add(lbl);
+        }
 
         JLabel grosorTxt = new JLabel("Grosor");
         grosorTxt.setHorizontalAlignment(SwingConstants.CENTER);
 
         JSlider grosor = new JSlider(1,30,5);
-
         JButton limpiar = new JButton("Limpiar");
 
-        panelHerr.add(pincel);
-        panelHerr.add(borrador);
-        panelHerr.add(relleno);
-        panelHerr.add(seleccion);
-        panelHerr.add(deshacer);
-        panelHerr.add(rehacer);
-        panelHerr.add(rect);
-        panelHerr.add(circ);
-        panelHerr.add(tri);
-        panelHerr.add(linea);
         panelHerr.add(grosorTxt);
         panelHerr.add(grosor);
         panelHerr.add(limpiar);
@@ -126,35 +75,31 @@ public class Paint extends JPanel implements MouseListener, MouseMotionListener 
         derecha.setBackground(new Color(245,245,245));
         derecha.setLayout(new GridLayout(2,1));
 
-        JPanel figurasPanel = new JPanel();
+        JPanel figurasPanel = new JPanel(new BorderLayout());
         figurasPanel.setBackground(new Color(245,245,245));
-        figurasPanel.setLayout(new BorderLayout());
 
         JLabel tituloFiguras = new JLabel("Figuras");
         tituloFiguras.setHorizontalAlignment(SwingConstants.CENTER);
 
-        JPanel panelFiguras = new JPanel();
+        JPanel panelFiguras = new JPanel(new GridLayout(4,1,5,5));
         panelFiguras.setBackground(new Color(245,245,245));
-        panelFiguras.setLayout(new GridLayout(4,1,5,5));
 
-        panelFiguras.add(rect);
-        panelFiguras.add(circ);
-        panelFiguras.add(tri);
-        panelFiguras.add(linea);
+        panelFiguras.add(new JLabel("Rectángulo", SwingConstants.CENTER));
+        panelFiguras.add(new JLabel("Círculo", SwingConstants.CENTER));
+        panelFiguras.add(new JLabel("Triángulo", SwingConstants.CENTER));
+        panelFiguras.add(new JLabel("Línea", SwingConstants.CENTER));
 
         figurasPanel.add(tituloFiguras, BorderLayout.NORTH);
         figurasPanel.add(panelFiguras, BorderLayout.CENTER);
 
-        JPanel coloresPanel = new JPanel();
+        JPanel coloresPanel = new JPanel(new BorderLayout());
         coloresPanel.setBackground(new Color(245,245,245));
-        coloresPanel.setLayout(new BorderLayout());
 
         JLabel tituloColores = new JLabel("Colores");
         tituloColores.setHorizontalAlignment(SwingConstants.CENTER);
 
-        JPanel panelColores = new JPanel();
+        JPanel panelColores = new JPanel(new GridLayout(3,2,5,5));
         panelColores.setBackground(new Color(245,245,245));
-        panelColores.setLayout(new GridLayout(3,2,5,5));
 
         panelColores.add(btnColor(Color.white));
         panelColores.add(btnColor(Color.black));
@@ -187,14 +132,6 @@ public class Paint extends JPanel implements MouseListener, MouseMotionListener 
         b.setBorder(BorderFactory.createLineBorder(Color.darkGray));
         return b;
     }
-
-    public void mousePressed(MouseEvent e){}
-    public void mouseDragged(MouseEvent e){}
-    public void mouseReleased(MouseEvent e){}
-    public void mouseClicked(MouseEvent e){}
-    public void mouseEntered(MouseEvent e){}
-    public void mouseExited(MouseEvent e){}
-    public void mouseMoved(MouseEvent e){}
 
     public static void main(String[] args) {
         new Paint();
