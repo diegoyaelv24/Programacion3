@@ -47,11 +47,17 @@ public class AuthController {
         }
 
         if(valid){
+
             if(model.validarLogin(email, password)){
-                view.mensaje.setText("Bienvenido");
+
                 JOptionPane.showMessageDialog(view,"Acceso correcto");
+
+                view.dispose();
+
+                new UsersController();
+
             } else {
-                view.mensaje.setText("Datos incorrectos");
+
                 JOptionPane.showMessageDialog(view,"Error en credenciales");
             }
         }
