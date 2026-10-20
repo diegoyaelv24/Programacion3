@@ -1,0 +1,63 @@
+.fondo_amarillo{background-color: yellow;}
+.fondo_rojo{background-color: red;}
+
+#enlaces a{color: chartreuse;}
+#enlaces a:hover{background-color: aqua;}
+
+.lista1 li:first-child { background-color: purple; }
+.lista2 li:first-child { background-color: red; }
+
+.lista1 li:last-child { background-color: orangered; }
+.lista2 li:last-child { background-color: olivedrab; }
+
+p:hover{color: blue;}
+
+@font-face {
+        font-family: "myStyle"; 
+        src: url(../assets/Matcha\ Style.ttf);
+    }
+h1{
+    font-family: "myStyle";    
+    
+}
+
+.my_p_w_shadow{
+    text-shadow: black 1px 1px 1px;
+}
+
+p {
+    text-align: justify;
+    text-decoration: aqua wavy underline;
+
+    border: 6px solid purple;         
+    border-radius: 16px;            
+    padding: 15px 20px;              
+    margin: 15px 0;                 
+}
+
+.img_fondo {
+    background-image: url('lebron.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 300px;
+    width: 94%;
+}
+
+h2,h3,h4{margin: 3px;}
+
+.my_parag{
+    position: sticky;
+    top: 30px;
+}
+
+.my_parag:hover{
+    background-color: red;
+    color: white;
+}
+
+#enlaces {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
