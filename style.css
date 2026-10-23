@@ -1,63 +1,171 @@
-.fondo_amarillo{background-color: yellow;}
-.fondo_rojo{background-color: red;}
-
-#enlaces a{color: chartreuse;}
-#enlaces a:hover{background-color: aqua;}
-
-.lista1 li:first-child { background-color: purple; }
-.lista2 li:first-child { background-color: red; }
-
-.lista1 li:last-child { background-color: orangered; }
-.lista2 li:last-child { background-color: olivedrab; }
-
-p:hover{color: blue;}
-
-@font-face {
-        font-family: "myStyle"; 
-        src: url(../assets/Matcha\ Style.ttf);
-    }
-h1{
-    font-family: "myStyle";    
-    
+body {
+    width: 90%;
+    margin: 0 auto;
+    font-family: Verdana, Arial, sans-serif;
+    color: #22182b;
+    background-color: #f6f1f8;
 }
 
-.my_p_w_shadow{
-    text-shadow: black 1px 1px 1px;
-}
-
-p {
-    text-align: justify;
-    text-decoration: aqua wavy underline;
-
-    border: 6px solid purple;         
-    border-radius: 16px;            
-    padding: 15px 20px;              
-    margin: 15px 0;                 
-}
-
-.img_fondo {
-    background-image: url('lebron.webp');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    min-height: 300px;
-    width: 94%;
-}
-
-h2,h3,h4{margin: 3px;}
-
-.my_parag{
-    position: sticky;
-    top: 30px;
-}
-
-.my_parag:hover{
-    background-color: red;
+h1 {
+    margin: 0;
+    padding: 30px 20px;
+    font-family: Georgia, serif;
+    text-align: center;
     color: white;
+    background-color: #6e1241;
+    border-bottom: 6px solid goldenrod;
 }
 
 #enlaces {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 10px;
+    padding: 12px;
+    margin-bottom: 25px;
+    background-color: black;
+}
+
+#enlaces a {
+    padding: 8px;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+#enlaces a:hover {
+    background-color: goldenrod;
+    color: black;
+}
+
+h2, h3 {
+    font-family: Georgia, serif;
+    color: #6e1241;
+    margin: 20px 0 10px 0;
+}
+
+h3 {
+    border-bottom: 3px solid goldenrod;
+    padding-bottom: 5px;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+    border: 4px solid white;
+    border-radius: 8px;
+}
+
+p {
+    padding: 10px 15px;
+    margin: 12px 0;
+}
+
+strong {
+    color: #6e1241;
+}
+
+a {
+    color: #9c1f5c;
+}
+
+.my_p_w_shadow {
+    text-align: justify;
+    text-shadow: gray 1px 1px 1px;
+    background-color: white;
+    border-left: 6px solid #9c1f5c;
+    border-radius: 8px;
+}
+
+img {
+    border: 4px solid white;
+    border-radius: 8px;
+}
+
+.lista1 li, .lista2 li {
+    padding: 12px 15px;
+    margin: 10px 0;
+    background-color: white;
+    border-radius: 8px;
+}
+
+.lista1 li {
+    border: 2px solid #9c1f5c;
+}
+
+.lista2 li {
+    border: 2px solid goldenrod;
+}
+
+table {
+    width: 100%;
+    background-color: white;
+}
+
+th, td {
+    padding: 10px 15px;
+    text-align: left;
+    border: 1px solid #d9cde0;
+}
+
+th {
+    color: white;
+    background-color: #6e1241;
+}
+
+form {
+    display: grid;
+    gap: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+    border: 2px solid #d9cde0;
+    border-radius: 8px;
+}
+
+input, select, textarea {
+    padding: 8px;
+    border: 1px solid #9c1f5c;
+    border-radius: 6px;
+}
+
+button {
+    padding: 12px;
+    color: white;
+    background-color: #9c1f5c;
+    border: none;
+    border-radius: 6px;
+}
+
+button:hover {
+    background-color: #6e1241;
+}
+
+iframe {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+#footer {
+    margin-top: 40px;
+    padding: 15px;
+    text-align: center;
+    color: white;
+    background-color: black;
+    border-top: 5px solid goldenrod;
+}
+
+#footer p {
+    margin: 0;
+}
+
+@media (max-width: 700px) {
+    body {
+        width: 96%;
+    }
+
+    #enlaces {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
